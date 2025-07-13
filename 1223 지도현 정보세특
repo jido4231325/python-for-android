@@ -1,0 +1,95 @@
+# 출력하기
+print("Hello, 나도 프로그래머!")
+
+# 사용자에게 입력받기
+name = input("당신의 이름은 무엇인가요? ")
+print("반가워요,", name + "님!")
+
+# 숫자 입력받고 덧셈
+num1 = int(input("첫 번째 숫자를 입력하세요: "))
+num2 = int(input("두 번째 숫자를 입력하세요: "))
+print("두 수의 합은", num1 + num2, "입니다.")
+# 변수 사용하기
+age = int(input("당신의 나이는 몇 살인가요? "))
+print("당신은", age, "살입니다.")
+
+# 문자열 + 숫자 = 오류 (형변환 필요)
+print("내년에 당신은", age + 1, "살이 됩니다.")
+
+# 리스트 사용
+hobbies = ["음악 감상", "게임", "독서"]
+print("취미 목록:", hobbies)
+print("첫 번째 취미:", hobbies[0])
+# 조건문 예제: 짝수/홀수
+num = int(input("숫자를 입력하세요: "))
+if num % 2 == 0:
+    print("짝수입니다.")
+else:
+    print("홀수입니다.")
+
+# 반복문 예제: 구구단
+dan = int(input("출력할 단(2~9): "))
+for i in range(1, 10):
+    print(dan, "x", i, "=", dan * i)
+
+# 숫자 맞추기 게임
+import random
+answer = random.randint(1, 10)
+guess = int(input("1부터 10 사이 숫자를 맞춰보세요: "))
+while guess != answer:
+    guess = int(input("틀렸습니다! 다시 시도해보세요: "))
+print("정답입니다!")
+# 함수 만들기
+def say_hello(name):
+    print("안녕하세요,", name, "님!")
+
+user = input("이름을 입력하세요: ")
+say_hello(user)
+
+# 시간 모듈 사용
+import time
+
+print("3초 후에 메시지를 보여드립니다...")
+time.sleep(3)
+print("시간이 흘렀어요!")
+
+# 간단한 계산기 함수
+def calc(a, b, op):
+    if op == "+":
+        return a + b
+    elif op == "-":
+        return a - b
+    elif op == "*":
+        return a * b
+    elif op == "/":
+        return a / b
+    else:
+        return "잘못된 연산자입니다."
+
+x = int(input("첫 번째 수: "))
+y = int(input("두 번째 수: "))
+op = input("연산자 (+, -, *, /): ")
+print("결과:", calc(x, y, op))
+# 랜덤 퀴즈 게임
+import random
+
+score = 0
+
+questions = {
+    "파이썬에서 문장을 출력할 때 사용하는 함수는?": "print",
+    "파이썬에서 리스트의 첫 번째 요소의 인덱스는?": "0",
+    "정수 나눗셈 기호는?": "//",
+}
+
+print("나도 프로그래머 퀴즈에 오신 걸 환영합니다!")
+print("-" * 30)
+
+for q in random.sample(list(questions.keys()), 3):
+    answer = input(q + " ")
+    if answer.strip().lower() == questions[q].lower():
+        print("정답입니다!")
+        score += 1
+    else:
+        print("틀렸어요! 정답은", questions[q])
+
+print(f"총 점수는 {score}/3점입니다.")
